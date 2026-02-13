@@ -1,0 +1,143 @@
+@charset "UTF-8";
+
+body {
+  font-family: "meiryoKe_PGothic", "メイリオ", "ＭＳ Ｐゴシック", "ヒラギノ角ゴ Pro W3", Osaka, Verdana, sans-serif;
+  font-size: 12pt;
+  margin: 0;
+  padding: 0;
+}
+h1 {
+  margin: 0;
+  padding-left: 16px;
+  border-left: 32px solid cornflowerblue;
+  border-bottom: 1px solid cornflowerblue;
+}
+.btn-flat-border {
+  display: inline-block;
+  margin: 0 8px 0 0;
+  padding: 4px;
+  text-decoration: none;
+  color: black;
+  border: 2px solid cornflowerblue;
+  border-radius: 8px;
+  transition: 0.25s;
+}
+.btn-flat-border:hover {
+  color: white;
+  background: cornflowerblue;
+  cursor: pointer;
+}
+table.main a:link, a:visited {
+  color: black;
+  text-decoration:none;
+}
+table.main a:hover {
+  left: 1px;
+  top: 1px;
+  position: relative;
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+}
+div.outer {
+  width: fit-content;
+  margin: 32px auto;
+}
+div.link {
+  display: flex;
+  padding: 8px 0;
+}
+div.link div.left {
+  padding: 0 8px;
+  border-left: 2px solid cornflowerblue;
+}
+div.link div.both {
+  padding: 0 8px;
+  border-left: 2px solid cornflowerblue;
+  border-right: 2px solid cornflowerblue;
+}
+table.main {
+  border: 2px solid black;
+  border-collapse: collapse;
+  empty-cells: show;
+}
+/*-------------------------
+table.main col.title-en {
+  visibility: collapse;
+}
+-------------------------*/
+table.main tr *.hidden {
+  /*
+  --title-en-display: none;
+  display: var(--title-en-display);
+  */
+  display: none;
+}
+/*
+table.main tr *.visible {
+  display: revert;
+}
+*/
+table.main th {
+  padding: 0px;
+  color: white;
+  background-color: cornflowerblue;
+  border: 2px solid black;
+}
+table.main td.solidAll {
+  border: 1px solid black;
+}
+table.main td.solidTop {
+  border-top: 2px solid black;
+  border-bottom: none;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+table.main td.dottedTop {
+  border-top: 1px dotted black;
+  border-bottom: none;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+table.main td.solidTopLeft {
+  border-top: 2px solid black;
+  border-bottom: none;
+  border-left: 2px solid black;
+  border-right: none;
+}
+table.main td.solidTopRight {
+  border-top: 2px solid black;
+  border-bottom: none;
+  border-left: none;
+  border-right: 2px solid black;
+}
+table.main td.dottedTopLeft {
+  border-top: 1px dotted black;
+  border-bottom: none;
+  border-left: 2px solid black;
+  border-right: none;
+}
+table.main td.dottedTopRight {
+  border-top: 1px dotted black;
+  border-bottom: none;
+  border-left: none;
+  border-right: 2px solid black;
+}
+table.main td.black {
+  text-align: center;
+  color: black;
+  border: 2px solid black;
+}
+table.main td.blue {
+  text-align: center;
+  color: blue;
+  border: 2px solid black;
+}
+table.main td.red {
+  text-align: center;
+  color: red;
+  border: 2px solid black;
+}
+table.main td.bg-gainsboro {
+  background-color: gainsboro;
+}
