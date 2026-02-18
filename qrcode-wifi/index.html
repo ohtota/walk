@@ -154,7 +154,7 @@
         <div  class="outer">
           <div class="inner">
             <label for="password">Password</label>
-            <input id="password" type="text" value="3565sehds74kb"onfocus="action(this)" onfocusout="idle(this)">
+            <input id="password" type="text" value="3565sehds74kb" onfocus="action(this)" onfocusout="idle(this)">
           </div>
           <div class="line-gray"></div>
           <div class="line-red"></div>
@@ -184,19 +184,30 @@
   <script type="text/javascript" src="qrcode.min.js"></script>
   <script type="text/javascript">
     function action(elm) {
+      if (document.getElementById("show-button").textContent.includes("消去")) {
+        alert("QRコードを消去すると、入力できるようになります。");
+        elm.blur();
+        return;
+      }
       elm.parentElement.parentElement.querySelector(".line-red").classList.add("active");
       elm.parentElement.querySelector("label").classList.add("active");
     }
     function idle(elm) {
+      if (document.getElementById("show-button").textContent.includes("消去")) {
+        return;
+      }
       elm.parentElement.parentElement.querySelector(".line-red").classList.remove('active');
       elm.parentElement.querySelector("label").classList.remove("active");
     }
     function makeQRCode() {
-      button = document.getElementById("show-button");
+      const button = document.getElementById("show-button");
       if (button.textContent.includes("消去")) {
         document.getElementById("code-frame").style.display = 'none';
         document.getElementById("text-frame").style.display = 'none';
         document.getElementById("button-frame").style.display = 'none';
+        document.getElementById("security").readOnly = false;
+        document.getElementById("ssid").readOnly = false;
+        document.getElementById("password").readOnly = false;
         button.textContent = button.textContent.replace("消去", "表示"); 
         return;
       }
@@ -222,6 +233,9 @@
       document.getElementById("code-frame").style.display = 'flex';
       document.getElementById("text-frame").style.display = 'flex';
       document.getElementById("button-frame").style.display = 'flex';
+      document.getElementById("security").readOnly = true;
+      document.getElementById("ssid").readOnly = true;
+      document.getElementById("password").readOnly = true;
       button.textContent = button.textContent.replace("表示", "消去"); 
     }
     function copy2clip() {
