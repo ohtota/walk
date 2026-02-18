@@ -42,7 +42,7 @@
     }
     .outer-out {
       width: fit-content;
-      padding: 32px;
+      padding: 32px 32px 8px 32px;
     }
     .outer-in {
       width: fit-content;
@@ -107,13 +107,23 @@
       text-decoration: none;
       color: royalblue;
       border: 3px solid royalblue;
+      background-color: lavender;
       border-radius: 8px;
       transition: 0.25s;
     }
     .btn-flat-border:hover {
       color: white;
-      background: royalblue;
+      background-color: royalblue;
       cursor: pointer;
+    }
+    .message {
+      /* display: none; */
+      height: 24px;
+      text-align: center;
+      margin-top: 8px;
+      font-size: 16px;
+      /* background-color: lightgreen; */
+      background-color: transparent;
     }
   </style>
 </head>
@@ -149,9 +159,9 @@
           <div class="line-gray"></div>
           <div class="line-red"></div>
         </div>
-        <!-- Button -->
+        <!-- Show QR Code Button -->
         <div class="align-right">
-          <div class="btn-flat-border" onclick="makeQRCode()">QRコードを表示</div>
+          <div id="show-button" class="btn-flat-border" onclick="makeQRCode()">QRコードを表示</div>
         </div>
         <!-- QR Code -->
         <div class="align-center" id="code-frame">
@@ -161,6 +171,12 @@
         <div class="align-center" id="text-frame">
           <div id="qrtext"></div>
         </div>
+        <!-- Copy To Clipbord Button -->
+        <div class="align-center" id="button-frame">
+          <div class="btn-flat-border" onclick="copy2clip()">QRコードをクリップボードにコピー</div>
+        </div>
+        <!-- message -->
+        <div class="message" id="message"></div>
       </div>
     </div>
   </div>
@@ -176,6 +192,14 @@
       elm.parentElement.querySelector("label").classList.remove("active");
     }
     function makeQRCode() {
+      button = document.getElementById("show-button");
+      if (button.textContent.includes("消去")) {
+        document.getElementById("code-frame").style.display = 'none';
+        document.getElementById("text-frame").style.display = 'none';
+        document.getElementById("button-frame").style.display = 'none';
+        button.textContent = button.textContent.replace("消去", "表示"); 
+        return;
+      }
       const security = document.getElementById("security").value.trim();
       const ssid = document.getElementById("ssid").value.trim();
       const password = document.getElementById("password").value.trim();
@@ -197,6 +221,32 @@
       textArea.innerHTML = qrtext;
       document.getElementById("code-frame").style.display = 'flex';
       document.getElementById("text-frame").style.display = 'flex';
+      document.getElementById("button-frame").style.display = 'flex';
+      button.textContent = button.textContent.replace("表示", "消去"); 
+    }
+    function copy2clip() {
+      const qrcode = document.getElementById("qrcode");
+      const canvas = qrcode.querySelector('canvas');
+      if (canvas === null) {
+        alert("画像（QRコード）の取得に失敗しました。。。");
+      } 
+      canvas.toBlob(async (blob) => {
+        try {
+          // クリップボードに書き込み
+          await navigator.clipboard.write([
+            new ClipboardItem({ 'image/png': blob })
+          ]);
+          const message = document.getElementById("message");
+          message.style.backgroundColor = "lightgreen";
+          message.innerText = "コピーしました"
+          setTimeout(() => {
+            message.style.backgroundColor = "transparent";
+            message.innerText = "";
+          }, 2000);
+        } catch (err) {
+          alert("コピーに失敗しました。。。。\n" + err);
+        }
+      }, 'image/png');
     }
   </script>
 </body>
