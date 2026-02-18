@@ -252,10 +252,10 @@
           ]);
           const message = document.getElementById("message");
           message.style.backgroundColor = "lightgreen";
-          message.innerText = "コピーしました"
+          message.textContent = "コピーしました"
           setTimeout(() => {
             message.style.backgroundColor = "transparent";
-            message.innerText = "";
+            message.textContent = "";
           }, 2000);
         } catch (err) {
           alert("コピーに失敗しました。。。。\n" + err);
