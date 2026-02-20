@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <title>QRCode(URL)</title>
+  <link rel="stylesheet" href="./index.css">
+  <!--
+  <style></style>
+  <script></script>
+  -->
+</head>
+<body>
+  <div class="container">
+    <div class="wrap">
+      <div class="header"><div class="title">QRコード（URL）</div></div>
+      <div class="outer-out">
+        <!-- URL -->
+        <div  class="outer">
+          <div class="inner">
+            <label for="url">URL</label>
+            <input id="url" type="text" value="https://ohtota.github.io/walk/qrcode-wifi/">
+          </div>
+          <div class="line-gray"></div>
+          <div class="line-red"></div>
+        </div>
+        <!-- Show QR Code Button -->
+        <div class="align-right">
+          <div id="show-button" class="btn-flat-border" onclick="makeQRCode()">QRコードを表示</div>
+        </div>
+        <div class="qrcode-wrap" id="qrcode-wrap">
+          <!-- QR Code -->
+          <div class="align-center" id="code-frame">
+            <div id="qrcode"></div>
+          </div>
+          <!-- QR Text -->
+          <div class="align-center" id="text-frame">
+            <div id="qrtext"></div>
+          </div>
+          <!-- Copy To Clipbord Button -->
+          <div class="align-center" id="button-frame">
+            <div class="btn-flat-border" onclick="copy2clip()">QRコードをクリップボードにコピー</div>
+          </div>
+          <!-- message -->
+          <div class="message" id="message"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- JavaScript -->
+  <script src="qrcode.min.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>
