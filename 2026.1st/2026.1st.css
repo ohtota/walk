@@ -48,6 +48,7 @@ div.link {
   display: flex;
   padding: 8px 0;
 }
+/*---------------------------------------------
 div.link div.left {
   padding: 0 8px;
   border-left: 2px solid var(--color-accent);
@@ -57,6 +58,7 @@ div.link div.both {
   border-left: 2px solid var(--color-accent);
   border-right: 2px solid var(--color-accent);
 }
+---------------------------------------------*/
 .btn-flat-border {
   display: inline-block;
   margin: 0 8px 0 0;
@@ -80,6 +82,9 @@ table.main {
 table.main a:link, a:visited {
   color: var(--color-main-fg);
   text-decoration:none;
+}
+.item-last { /* 最後の要素だけ右寄せにする */
+  margin-left: auto;
 }
 table.main a:hover {
   left: 1px;
