@@ -140,6 +140,24 @@ table.main td.dottedTopRight {
   border-left: none;
   border-right: 2px solid var(--color-main-fg);
 }
+table.main td.solidTopLeft {
+  border-top: 2px solid var(--color-main-fg);
+  border-bottom: none;
+  border-left: 2px solid var(--color-main-fg);
+  border-right: none;
+}
+table.main td.solidTopOnly {
+  border-top: 2px solid var(--color-main-fg);
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+table.main td.dottedTopOnly {
+  border-top: 1px dotted var(--color-main-fg);
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
 table.main td.weekday {
   text-align: center;
   color: var(--color-main-fg);
