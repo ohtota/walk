@@ -1,0 +1,40 @@
+@charset "UTF-8";
+:root {
+--color-main-fg: #1f1f1f;
+--color-main-bg: #f5f6f6;
+--color-card: #ffffff;
+--color-accent: #6495ed;
+--color-accent-fg: #ffffff;
+--color-o-light: #ffe4e1;
+--color-p-shade: #e8eaed;
+--color-o-shade: #ccffff; 
+--color-box-shadow: rgba(0, 0, 0, 0.4);
+--color-img-grayscale: 0;
+}
+[data-theme="dark"] {
+--color-main-fg: #e3e3e3;
+--color-main-bg: #333333;
+--color-card: #181818;
+--color-accent: #6495ed;
+--color-accent-fg: #ffffff;
+--color-o-light: #663333;
+--color-p-shade: #3c4043;
+--color-o-shade: #003366;
+--color-box-shadow: rgba(128, 128, 128, 0.4);
+--color-img-grayscale: 80%;
+}
+
+table.main {
+  border: 2px solid var(--color-main-fg);
+  border-collapse: collapse;
+  /* empty-cells: show; */
+}
+table.main th, td {
+  border: 1px solid var(--color-main-fg);
+}
+table.main th {
+  background-color: var(--color-main-bg);
+}
+table.main td:nth-child(n+2) {
+  text-align: right;
+}
