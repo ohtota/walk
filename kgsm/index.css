@@ -29,6 +29,9 @@ body {
   padding: 0;
 }
 -------------*/
+h1 {
+  text-align: center;
+}
 div.wrapper {
   width: fit-content;
   margin: 0 auto;
